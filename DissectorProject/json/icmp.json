@@ -1,0 +1,76 @@
+{
+  "protoname": "ICMPules Protocol",
+  "protoabbrev": "ICMPules",
+  "endianness": "big",
+  "dependencies": "ip.proto",
+  "udp_port": 0,
+  "tcp_port": 0,
+  "fields":
+  [
+    {
+      "name": "type",
+      "type": "int8",
+      "base": "DEC",
+      "size":
+      {
+        "byte": ["0", "1"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "code",
+      "type": "int8",
+      "base": "DEC",
+      "size": {
+        "byte": ["1", "1"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "checksum",
+      "type": "uint8",
+      "base": "HEX",
+      "size": {
+        "byte": ["2", "2"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "identifier",
+      "type": "uint16",
+      "base": "DEC_HEX",
+      "size": {
+        "byte": ["4", "2"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "sequence_number",
+      "type": "uint16",
+      "base": "DEC_HEX",
+      "size": {
+        "byte": ["6", "2"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "timestamp",
+      "type": "absolute_time",
+      "base": "MDT",
+      "size": {
+        "byte": ["8", "8"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "data",
+      "type": "bytes",
+      "base": "NONE",
+      "size": {
+        "byte": ["16", "end"],
+        "bit": ["0", "0"]
+      }
+    }
+  ]
+}
+}

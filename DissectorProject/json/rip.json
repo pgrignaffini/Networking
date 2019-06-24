@@ -1,0 +1,62 @@
+  {
+    "protoname" : "RIPules Protocol",
+    "protoabbrev" : "RIPules",
+    "endianness" : "big",
+    "dependencies" : "ip.proto",
+    "udp_port" : 520,
+    "tcp_port" : 0,
+    "fields" : [
+      {
+        "name" : "command",
+        "type" : "int8",
+        "base" : "DEC",
+        "size" :
+        {
+          "byte" : ["0", "1"],
+          "bit" : ["0", "0"]
+        }
+      },
+      {
+        "name" : "version",
+        "type" : "int8",
+        "base" : "DEC",
+        "size" :
+        {
+          "byte" : ["1", "1"],
+          "bit" : ["0", "0"]
+        }
+      }
+    ],
+    "remaining_data" : [
+      {
+        "name" : "address_family",
+        "type" : "int16",
+        "base" : "DEC",
+        "size" :
+        {
+          "byte" : ["4", "2"],
+          "bit" : ["0", "0"]
+        }
+      },
+      {
+        "name" : "ip",
+        "type" : "ipv4",
+        "base" : "DEC",
+        "size" :
+        {
+          "byte" : ["8", "4"],
+          "bit" : ["0", "0"]
+        }
+      },
+      {
+        "name" : "metric",
+        "type" : "int32",
+        "base" : "DEC",
+        "size" :
+        {
+          "byte" : ["20", "4"],
+          "bit" : ["0", "0"]
+        }
+      }
+    ]
+}

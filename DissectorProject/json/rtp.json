@@ -1,0 +1,102 @@
+{
+  "protoname": "RTPules Protocol",
+  "protoabbrev": "RTPules",
+  "endianness": "big",
+  "dependencies": null,
+  "udp_port": 6040,
+  "tcp_port": 0,
+  "fields":
+  [
+    {
+      "name": "version",
+      "type": "int8",
+      "base": "DEC",
+      "size":
+      {
+        "byte": ["0", "1"],
+        "bit": ["0", "2"]
+      }
+    },
+    {
+      "name": "padding",
+      "type": "bool",
+      "base": "NONE",
+      "size": {
+        "byte": ["0", "1"],
+        "bit": ["2", "1"]
+      }
+    },
+    {
+      "name": "extension",
+      "type": "bool",
+      "base": "NONE",
+      "size": {
+        "byte": ["0", "1"],
+        "bit": ["3", "1"]
+      }
+    },
+    {
+      "name": "CSRC_count",
+      "type": "int8",
+      "base": "DEC",
+      "size": {
+        "byte": ["0", "1"],
+        "bit": ["4", "4"]
+      }
+    },
+    {
+      "name": "marker",
+      "type": "bool",
+      "base": "NONE",
+      "size": {
+        "byte": ["1", "1"],
+        "bit": ["0", "1"]
+      }
+    },
+    {
+      "name": "payload_type",
+      "type": "int8",
+      "base": "DEC",
+      "size": {
+        "byte": ["1", "1"],
+        "bit": ["1", "7"]
+      }
+    },
+    {
+      "name": "sequence_number",
+      "type": "uint16",
+      "base": "DEC_HEX",
+      "size": {
+        "byte": ["2", "2"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "timestamp",
+      "type": "int32",
+      "base": "DEC",
+      "size": {
+        "byte": ["4", "4"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "SSRC",
+      "type": "uint32",
+      "base": "HEX_DEC",
+      "size": {
+        "byte": ["8", "4"],
+        "bit": ["0", "0"]
+      }
+    },
+    {
+      "name": "data",
+      "type": "bytes",
+      "base": "NONE",
+      "size": {
+        "byte": ["12", "end"],
+        "bit": ["0", "0"]
+      }
+    }
+  ]
+}

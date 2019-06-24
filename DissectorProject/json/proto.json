@@ -1,0 +1,43 @@
+  {
+    "protoname" : "protoname",
+    "protoabbrev" : "protoabbrev",
+    "endianness" : "endianness",
+    "dependencies" : "protocol",
+    "udp_port" : 1234,
+    "tcp_port" : 1234,
+    "fields" : [
+      {
+        "name" : "name",
+        "type" : "type",
+        "base" : "base",
+        "size" :
+        {
+          "byte" : ["0", "1"],
+          "bit" : ["0", "1"]
+        }
+      }
+    ],
+    "remaining_data" : [
+      {
+        "name" : "checksum",
+        "type" : "uint8",
+        "base" : "HEX",
+        "size" :
+        {
+          "byte" : ["0", "0"],
+          "bit" : ["0", "0"]
+        }
+      }
+    ]
+  }
+
+NOTE: numbers in byte and bit must be sorrounded by double quotes ("0")
+NOTE: tcp and udp port cannot be both defined, just one
+
+if byte[1] == "end" then we examine the whole rest of the packet's data
+byte[1] == "end" can only be placed in a "fields" field, not in "remaining_data", also after
+a byte[1] == "end" there should not be any other fields defined.
+
+"remaining data" is a special type of field that can be used to specify a "pattern" to dissect
+the rest of the data in the packet, following the same pattern until we reach the end of the packet.
+This "remaining data" field is used in RIP.json
